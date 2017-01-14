@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -20,6 +22,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destination = segue.destination as!
+        AVPlayerViewController
+        let url = URL(string:"https://content.jwplatform.com/manifests/vM7nH0Kl.m3u8")
+        
+        if let movieURL = url {
+            destination.player = AVPlayer(url: movieURL)
+        }
+    }
+    
 }
 
